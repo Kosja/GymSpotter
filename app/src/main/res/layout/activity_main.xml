@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_height="54dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:gravity="center"
+        android:text="@string/gymspotter"
+        android:textColor="#F3EEEE"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent" />
+
+    <Button
+        android:id="@+id/viewExercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIEW EXERCISE"
+        android:onClick="showExercise"/>
+    <LinearLayout
+        android:id="@+id/workoutLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:gravity="top">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayouts02"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="bottom|end">
+
+
+        <EditText
+            android:id="@+id/workoutName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+        <Button
+            android:id="@+id/addWorkoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
+            android:text="Add Workout"
+            android:onClick="addWorkout"/>
+
+    </LinearLayout>
+</LinearLayout>
