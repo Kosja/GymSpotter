@@ -12,8 +12,8 @@
 
 # Features
 
-- Add exercise day
-- Show different muscle categories
+- User can add exercise day
+- User can display different muscle categories
 
 # Known bugs
 
