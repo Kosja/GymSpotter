@@ -38,6 +38,7 @@ class ExerciseAdapter(private val userList: ArrayList<ExercisesResult>) : Recycl
                     intent.putExtra("exerciseName", exercise.name)
                     intent.putExtra("description", exercise.description)
                     intent.putExtra("exerciseBase", exercise.exerciseBase.toString())
+                    intent.putExtra("ID", exercise.id.toString())
                     itemView.context.startActivity(intent)
 
             }

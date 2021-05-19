@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymSpotter">
-        <activity android:name=".ExerciseActivity"></activity>
+        <activity android:name=".FavoritesActivity"></activity>
+        <activity android:name=".ExerciseActivity" />
         <activity android:name=".ExercisesActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

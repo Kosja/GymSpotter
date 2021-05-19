@@ -1,6 +1,5 @@
 package com.example.gymspotter
 
-
 import com.fasterxml.jackson.annotation.JsonProperty
 
 data class ExerciseImages(

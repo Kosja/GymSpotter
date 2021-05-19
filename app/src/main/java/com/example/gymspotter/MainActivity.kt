@@ -1,6 +1,8 @@
 package com.example.gymspotter
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,5 +32,10 @@ class MainActivity : AppCompatActivity() {
                 recyclerView.adapter = adapter
             }
         }
+    }
+
+    fun FavoritesButton(view: View) {
+        var intent = Intent(this, FavoritesActivity::class.java)
+        startActivity(intent)
     }
 }
