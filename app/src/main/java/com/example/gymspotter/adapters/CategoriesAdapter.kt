@@ -8,10 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymspotter.ExercisesActivity
 import com.example.gymspotter.R
-import com.example.gymspotter.Result
+import com.example.gymspotter.CategoriesResult
 
 
-class CategoriesAdapter(private val categoryList: ArrayList<Result>) : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
+class CategoriesAdapter(private val categoryList: ArrayList<CategoriesResult>) : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
     // Returns the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,7 +30,7 @@ class CategoriesAdapter(private val categoryList: ArrayList<Result>) : RecyclerV
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(category: Result) {
+        fun bindItems(category: CategoriesResult) {
             val categoryName = itemView.findViewById(R.id.categoryName) as TextView
             categoryName.text = category.name
 

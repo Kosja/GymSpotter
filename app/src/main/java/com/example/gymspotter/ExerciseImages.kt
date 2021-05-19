@@ -3,13 +3,13 @@ package com.example.gymspotter
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Categories(
+data class ExerciseImages(
     @JsonProperty("count")
-    val count: Int,
+    val count: Int? = null,
     @JsonProperty("next")
-    val next: Any?,
+    val next: Any? = null,
     @JsonProperty("previous")
-    val previous: Any?,
+    val previous: Any? = null,
     @JsonProperty("results")
-    val categoriesResults: List<CategoriesResult>
+    val exerciseImageResults: List<ExerciseImageResult>
 )

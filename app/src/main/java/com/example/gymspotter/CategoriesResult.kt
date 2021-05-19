@@ -3,7 +3,7 @@ package com.example.gymspotter
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class Result(
+data class CategoriesResult(
     @JsonProperty("id")
     val id: Int? = null,
     @JsonProperty("name")

@@ -12,40 +12,36 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gymspotter.adapters.ExerciseAdapter
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.net.URL
-import javax.net.ssl.HttpsURLConnection
 import kotlin.concurrent.thread
 
 class ExercisesActivity : AppCompatActivity() {
 
-    lateinit var filteredList: ArrayList<ResultX>
+    lateinit var filteredList: ArrayList<ExercisesResult>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercises)
         val searchExercise = findViewById<EditText>(R.id.searchExercise)
         val categoryID = intent.getStringExtra("ID")
         val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        // Layoutmanager to set items in two columns
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        // Layoutmanager to set items in one column
+        recyclerView.layoutManager = GridLayoutManager(this, 1)
 
         thread() {
             val mp = ObjectMapper()
             val myObject = mp.readValue(
-                getUrl("https://wger.de/api/v2/exercise/?language=2&category=$categoryID&limit=300"),
+                URL("https://wger.de/api/v2/exercise/?language=2&category=$categoryID&limit=300"),
                 ExercisesJSON::class.java
             )
-            val list = myObject.results as ArrayList<ResultX>
 
+            val list = myObject.exercisesResults as ArrayList<ExercisesResult>
             setupRecyclerView(list)
-
+            // Search bar filter for exercises
             searchExercise.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(p0: Editable?) {
-                }
-
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
+                override fun afterTextChanged(p0: Editable?) {}
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                    filteredList = ArrayList<ResultX>()
+                    filteredList = ArrayList()
                     if (p0.toString() != null) {
                         for (item in list) {
                             if (item.name.toLowerCase().contains(p0.toString().toLowerCase())) {
@@ -62,8 +58,8 @@ class ExercisesActivity : AppCompatActivity() {
         }
 
     }
-
-    private fun setupRecyclerView(list: ArrayList<ResultX>) {
+    // Add items to RecyclerView
+    private fun setupRecyclerView(list: ArrayList<ExercisesResult>) {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val adapter = ExerciseAdapter(list)
         val progressBar: ProgressBar = findViewById(R.id.loading)
@@ -73,21 +69,5 @@ class ExercisesActivity : AppCompatActivity() {
             recyclerView.adapter = adapter
         }
 
-    }
-
-
-    private fun getUrl(url: String): String? {
-        var result = ""
-        val myUrl = URL(url)
-        val conn = myUrl.openConnection() as HttpsURLConnection
-        var inputstream = conn.inputStream
-        inputstream.use {
-            var line = it.read()
-            while (line != -1) {
-                result += line.toChar()
-                line = it.read()
-            }
-        }
-        return result
     }
 }

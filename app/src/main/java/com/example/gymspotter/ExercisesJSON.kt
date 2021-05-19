@@ -13,5 +13,5 @@ data class ExercisesJSON(
     @JsonProperty("previous")
     val previous: Any?? = null,
     @JsonProperty("results")
-    val results: List<ResultX>
+    val exercisesResults: List<ExercisesResult>
 )
