@@ -44,11 +44,11 @@
 - From here user can either start browsing for exercises
 - Pressing on category opens view for exercises. Exercises can be searched from the search bar.
 
-  <img src="./appScreens/mainScreen.png" width="20%"> <img src="./appScreens/categories.png" width="20%"> <img src="./appScreens/exercise.png" width="20%">
+  <img src="./AppScreens/mainScreen.png" width="20%"> <img src="./AppScreens/categories.png" width="20%"> <img src="./AppScreens/exercise.png" width="20%">
 
 ### Adding/removing favorites
 
 - Adding to favorites is done by pressing the favorite button, app gives toast on success.
 - Favorites can be removed from favorites or through exercise browsing by pressing remove button.
 
-  <img src="./appScreens/favorites.png" width="20%"> <img src="./appScreens/exercise.png" width="20%"> <img src="./appScreens/removeFavorite.png" width="20%">
+  <img src="./AppScreens/favorites.png" width="20%"> <img src="./AppScreens/exercise.png" width="20%"> <img src="./AppScreens/removeFavorite.png" width="20%">
