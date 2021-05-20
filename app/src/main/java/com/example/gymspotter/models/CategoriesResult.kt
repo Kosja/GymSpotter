@@ -1,4 +1,4 @@
-package com.example.gymspotter
+package com.example.gymspotter.models
 
 
 import com.fasterxml.jackson.annotation.JsonProperty

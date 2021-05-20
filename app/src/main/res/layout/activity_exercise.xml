@@ -83,7 +83,7 @@
                 android:layout_width="110dp"
                 android:layout_height="45dp"
                 android:background="@drawable/favorite_button"
-                android:onClick="Favorite"
+                android:onClick="favoriteButton"
                 android:shadowColor="#AB020101"
                 android:shadowDx="0"
                 android:shadowDy="2"

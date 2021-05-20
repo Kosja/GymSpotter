@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymspotter.ExerciseActivity
+import com.example.gymspotter.models.ExercisesResult
 import com.example.gymspotter.R
-import com.example.gymspotter.ExercisesResult
 
-class ExerciseAdapter(private val userList: ArrayList<ExercisesResult>) : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
+class ExerciseAdapter(private val exerciseList: ArrayList<ExercisesResult>) : RecyclerView.Adapter<ExerciseAdapter.ViewHolder>() {
 
     // Returns the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,12 +19,12 @@ class ExerciseAdapter(private val userList: ArrayList<ExercisesResult>) : Recycl
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(userList[position])
+        holder.bindItems(exerciseList[position])
     }
 
     // Get the size of the list
     override fun getItemCount(): Int {
-        return userList.size
+        return exerciseList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

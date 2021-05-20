@@ -10,27 +10,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gymspotter.adapters.ExerciseAdapter
+import com.example.gymspotter.models.Exercises
+import com.example.gymspotter.models.ExercisesResult
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.net.URL
 import kotlin.concurrent.thread
 
 class ExercisesActivity : AppCompatActivity() {
-
     lateinit var filteredList: ArrayList<ExercisesResult>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercises)
         val searchExercise = findViewById<EditText>(R.id.searchExercise)
         val categoryID = intent.getStringExtra("ID")
-        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        // Layoutmanager to set items in one column
-        recyclerView.layoutManager = GridLayoutManager(this, 1)
+        findViewById<RecyclerView>(R.id.recyclerView)
 
         thread() {
             val mp = ObjectMapper()
             val myObject = mp.readValue(
                 URL("https://wger.de/api/v2/exercise/?language=2&category=$categoryID&limit=300"),
-                ExercisesJSON::class.java
+                Exercises::class.java
             )
 
             val list = myObject.exercisesResults as ArrayList<ExercisesResult>
@@ -61,12 +61,13 @@ class ExercisesActivity : AppCompatActivity() {
     // Add items to RecyclerView
     private fun setupRecyclerView(list: ArrayList<ExercisesResult>) {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        val adapter = ExerciseAdapter(list)
         val progressBar: ProgressBar = findViewById(R.id.loading)
 
         runOnUiThread {
             progressBar.visibility = View.GONE
-            recyclerView.adapter = adapter
+            recyclerView.adapter = ExerciseAdapter(list)
+            // Layoutmanager to set items in one column
+            recyclerView.layoutManager = GridLayoutManager(this, 1)
         }
 
     }

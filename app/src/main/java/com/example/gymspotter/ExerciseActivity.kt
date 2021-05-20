@@ -9,13 +9,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.gymspotter.models.ExerciseImageResult
+import com.example.gymspotter.models.ExerciseImages
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.net.URL
 import kotlin.concurrent.thread
 
 class ExerciseActivity : AppCompatActivity() {
     private var userFavorites = arrayListOf<String>()
-    lateinit var favoriteButton: Button
     lateinit var tinyDB : TinyDB
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,22 +58,28 @@ class ExerciseActivity : AppCompatActivity() {
         var id = intent.getStringExtra("ID")
 
         userFavorites = tinyDB.getListString("userFavorites")
+        // Changes button text depending if exercise is added to favorites
         favoriteButton.text = if(userFavorites.contains(id.toString())) "Remove" else "Favorite"
 
     }
 
-    fun Favorite(view: View) {
+    fun favoriteButton(view: View) {
         var id = intent.getStringExtra("ID")
-
+        // Fetch array from shared preferences using helper class
         userFavorites = tinyDB.getListString("userFavorites")
+        // Check if exercise is in userfavorites
         if(userFavorites.contains(id.toString())) {
+            // Remove exercise from userFavorites
             userFavorites = userFavorites.filter { it != id.toString() } as ArrayList<String>
             Toast.makeText(this@ExerciseActivity, "Removing exercise from favorites", Toast.LENGTH_SHORT).show()
         } else {
+            // Add exercise to userFavorites
             userFavorites.add(id.toString())
             Toast.makeText(this@ExerciseActivity, "Exercise added to favorites", Toast.LENGTH_LONG).show()
         }
+        // Add edited array back to shared preferences
         tinyDB.putListString("userFavorites", userFavorites)
+        // close activity and return to previous
         this.finish()
     }
 }

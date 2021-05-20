@@ -1,6 +1,7 @@
-package com.example.gymspotter
+package com.example.gymspotter.models
 
 
+import com.example.gymspotter.models.CategoriesResult
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
