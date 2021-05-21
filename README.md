@@ -14,8 +14,6 @@
 - User can add exercise day.
 - User can display different muscle categories.
 
----
-
 ## Release 2: 2021-05-21 features
 
 - User can browse excercises.
@@ -25,8 +23,6 @@
 - User can remove exercises from favorites.
 - User can browse favorited exercises.
 - App checks the internet connection on main screen, if no connection is available, snackbar opens where user can try to reconnect.
-
----
 
 ## Known bugs
 
