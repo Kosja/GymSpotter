@@ -14,10 +14,14 @@ import java.net.URL
 import kotlin.concurrent.thread
 
 class FavoritesActivity : AppCompatActivity() {
+    lateinit var recyclerView: RecyclerView
+    lateinit var progressBar: ProgressBar
+    lateinit var tinyDB: TinyDB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorites)
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        tinyDB = TinyDB(applicationContext)
+        recyclerView = findViewById(R.id.recyclerView)
         // Layoutmanager to set items in one column
         recyclerView.layoutManager = GridLayoutManager(this, 1)
     }
@@ -36,7 +40,6 @@ class FavoritesActivity : AppCompatActivity() {
                 Exercises::class.java
             )
             var list = myObject.exercisesResults
-            var tinyDB = TinyDB(applicationContext)
             var favoritesList = tinyDB.getListString("userFavorites")
             list = list.filter { it.id.toString() in favoritesList } as ArrayList<ExercisesResult>
             setupRecyclerView(list)
@@ -45,9 +48,9 @@ class FavoritesActivity : AppCompatActivity() {
     }
     // Add items to RecyclerView
     private fun setupRecyclerView(list: ArrayList<ExercisesResult>) {
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerView)
+        progressBar = findViewById(R.id.loading)
         val adapter = ExerciseAdapter(list)
-        val progressBar: ProgressBar = findViewById(R.id.loading)
 
         runOnUiThread {
             progressBar.visibility = View.GONE

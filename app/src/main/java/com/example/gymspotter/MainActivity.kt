@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -21,11 +22,13 @@ import kotlin.concurrent.thread
 
 
 class MainActivity : AppCompatActivity() {
+    lateinit var recyclerView: RecyclerView
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerView)
         // Layoutmanager to set items in two columns
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 

@@ -18,13 +18,15 @@ import kotlin.concurrent.thread
 
 class ExercisesActivity : AppCompatActivity() {
     lateinit var filteredList: ArrayList<ExercisesResult>
+    lateinit var recyclerView: RecyclerView
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercises)
         val searchExercise = findViewById<EditText>(R.id.searchExercise)
         val categoryID = intent.getStringExtra("ID")
-        findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerView)
 
         thread() {
             val mp = ObjectMapper()
@@ -42,6 +44,7 @@ class ExercisesActivity : AppCompatActivity() {
 
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                     filteredList = ArrayList()
+                    // If searchbar has text filter the list with the search criteria
                     if (p0.toString() != null) {
                         for (item in list) {
                             if (item.name.toLowerCase().contains(p0.toString().toLowerCase())) {
@@ -60,8 +63,8 @@ class ExercisesActivity : AppCompatActivity() {
     }
     // Add items to RecyclerView
     private fun setupRecyclerView(list: ArrayList<ExercisesResult>) {
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        val progressBar: ProgressBar = findViewById(R.id.loading)
+        recyclerView = findViewById(R.id.recyclerView)
+        progressBar = findViewById(R.id.loading)
 
         runOnUiThread {
             progressBar.visibility = View.GONE

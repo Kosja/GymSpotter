@@ -53,7 +53,7 @@ class ExerciseActivity : AppCompatActivity() {
                 Log.d("Exception", "No image")
             }
         }
-        favoriteButton.text = "remove"
+
         exerciseNameText.text = exerciseName
         // Remove HTML tags before adding description to textview
         descriptionText.text = description?.replace(removeTags, "")
