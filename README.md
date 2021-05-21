@@ -1,12 +1,9 @@
 # GymSpotter
 
-|                  |                                                                                                                                                                  |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name             | Jani Koski                                                                                                                                                       |
-| Topic            | Mobile application where user can search different exercises sorted by category. User can use search bar to filter results. Exercises can be added to favorites. |
-| Target           | Android/Kotlin                                                                                                                                                   |
-| Google Play link | http://… (will be updated when ready                                                                                                                             |
-| App Store link   | http://… (will be updated when ready)                                                                                                                            |
+| Name   | Jani Koski                                                                                                                                                       |
+| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Topic  | Mobile application where user can search different exercises sorted by category. User can use search bar to filter results. Exercises can be added to favorites. |
+| Target | Android/Kotlin                                                                                                                                                   |
 
 ---
 
