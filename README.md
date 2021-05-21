@@ -7,14 +7,16 @@
 
 ---
 
-# Release 1: 2021-05-12 features
+# Releases
+
+## Release 1: 2021-05-12 features
 
 - User can add exercise day.
 - User can display different muscle categories.
 
 ---
 
-# Release 2: 2021-05-21 features
+## Release 2: 2021-05-21 features
 
 - User can browse excercises.
 - User can display exercises data(name, image and description).
@@ -26,7 +28,7 @@
 
 ---
 
-# Known bugs
+## Known bugs
 
 - Opening favorites takes slightly longer than usual
 
