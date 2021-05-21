@@ -1,6 +1,7 @@
 package com.example.gymspotter
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -33,6 +34,8 @@ class ExerciseActivity : AppCompatActivity() {
         val exerciseName = intent.getStringExtra("exerciseName")
         val exerciseBase = intent.getStringExtra("exerciseBase")
         val removeTags = "<[^>]*>".toRegex()
+        // Adds scrolling to textview
+        descriptionText.movementMethod = ScrollingMovementMethod()
         thread {
             try {
                 val mp = ObjectMapper()
