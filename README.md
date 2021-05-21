@@ -12,11 +12,6 @@
 - User can add exercise day.
 - User can display different muscle categories.
 
-## Known bugs
-
-- Added exercise days are not saved. Changes are lost after app is closed.
-- When fetching muscle categories from API, search time is long(~30s).
-
 ---
 
 # Release 2: 2021-05-21 features
@@ -29,7 +24,9 @@
 - User can browse favorited exercises.
 - App checks the internet connection on main screen, if no connection is available, snackbar opens where user can try to reconnect.
 
-## Known bugs
+---
+
+# Known bugs
 
 - Opening favorites takes slightly longer than usual
 
