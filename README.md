@@ -17,6 +17,8 @@
 - Added exercise days are not saved. Changes are lost after app is closed.
 - When fetching muscle categories from API, search time is long(~30s).
 
+---
+
 # Release 2: 2021-05-21 features
 
 - User can browse excercises.
