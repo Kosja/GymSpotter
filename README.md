@@ -52,11 +52,15 @@
 
   <img src="./AppScreens/favorites.png" width="20%"> <img src="./AppScreens/exercise.png" width="20%"> <img src="./AppScreens/removeFavorite.png" width="20%">
 
+---
+
 # Used libraries
 
 - https://github.com/FasterXML/jackson
 - https://github.com/bumptech/glide
 - https://github.com/kcochibili/TinyDB--Android-Shared-Preferences-Turbo
+
+---
 
 # Screencast
 
