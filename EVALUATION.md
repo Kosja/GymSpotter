@@ -4,3 +4,6 @@ Käytettävyys kärsii hitaudesta. Kategorioita ladatessa ei näy latauspalkkia.
 Readme on tehty hyvin, siellä näkyy kuvat, ominaisuudet ja käytetyt kirjastot. Ainut miinus, että käytettyä api:a ei ole mainittu.
 
 Peruskäytettävyys toimii hyvin, joskin vähän hitaasti. Koodi näyttää hyvältä ja uskoisin uusien ominaisuuksien lisäämisen sujuvan melko helposti.
+
+Arvioija: Joonas Kirsi
+Arvioinnin kohde: Jani Koski
